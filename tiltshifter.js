@@ -3,7 +3,7 @@ window.onload = function() {
     for (var i = 0; i < tiltShiftCanvas.length; i++) {
         var canvas = tiltShiftCanvas.item(i);
         initializeBlur(canvas, canvas.getAttribute('data-imgsrc'), parseInt(canvas.getAttribute('data-radius')),
-                parseInt(canvas.getAttribute('data-radius')));
+                parseInt(canvas.getAttribute('data-offset')));
     }
 };
 
