@@ -1,9 +1,9 @@
-window.onload=function() {
+window.onload = function() {
     var tiltShiftCanvas = document.getElementsByClassName("tiltshift");
-    for(var i = 0; i < tiltShiftCanvas.length; i++){
+    for (var i = 0; i < tiltShiftCanvas.length; i++) {
         var canvas = tiltShiftCanvas.item(i);
-        initializeBlur(canvas, canvas.getAttribute('data-imgsrc'), parseInt(canvas.getAttribute('data-radius')), 
-            parseInt(canvas.getAttribute('data-radius')));
+        initializeBlur(canvas, canvas.getAttribute('data-imgsrc'), parseInt(canvas.getAttribute('data-radius')),
+                parseInt(canvas.getAttribute('data-radius')));
     }
 };
 
@@ -15,21 +15,17 @@ function initializeBlur(myCanvas, imgsrc, radius, offset) {
         myCanvas.height = imageObj.height;
         myCanvas.width = imageObj.width;
         context.drawImage(imageObj, 0, 0);
-        blurLayers();
-
-        function blurLayers() {
-            var originalData = context.getImageData(0, 0, imageObj.width, imageObj.height);
-            var blurredData = context.getImageData(0, 0, imageObj.width, imageObj.height);
-            boxBlur(blurredData.data, imageObj.width, imageObj.height, 1);
-            mergeBlur(originalData.data, blurredData.data, imageObj.width, imageObj.height, radius);
-            boxBlur(blurredData.data, imageObj.width, imageObj.height, 1);
-            mergeBlur(originalData.data, blurredData.data, imageObj.width, imageObj.height, radius * 1.33, offset);
-            boxBlur(blurredData.data, imageObj.width, imageObj.height, 2);
-            mergeBlur(originalData.data, blurredData.data, imageObj.width, imageObj.height, radius * 1.66, offset);
-            boxBlur(blurredData.data, imageObj.width, imageObj.height, 2);
-            mergeBlur(originalData.data, blurredData.data, imageObj.width, imageObj.height, radius * 2, offset);
-            context.putImageData(originalData, 0, 0);
-        }
+        var originalData = context.getImageData(0, 0, imageObj.width, imageObj.height);
+        var blurredData = context.getImageData(0, 0, imageObj.width, imageObj.height);
+        boxBlur(blurredData.data, imageObj.width, imageObj.height, 1);
+        mergeBlur(originalData.data, blurredData.data, imageObj.width, imageObj.height, radius);
+        boxBlur(blurredData.data, imageObj.width, imageObj.height, 1);
+        mergeBlur(originalData.data, blurredData.data, imageObj.width, imageObj.height, radius * 1.33, offset);
+        boxBlur(blurredData.data, imageObj.width, imageObj.height, 2);
+        mergeBlur(originalData.data, blurredData.data, imageObj.width, imageObj.height, radius * 1.66, offset);
+        boxBlur(blurredData.data, imageObj.width, imageObj.height, 2);
+        mergeBlur(originalData.data, blurredData.data, imageObj.width, imageObj.height, radius * 2, offset);
+        context.putImageData(originalData, 0, 0);
     }
 
     function boxBlur(inputData, imageWidth, imageHeight, radius) {
