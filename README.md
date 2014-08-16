@@ -5,7 +5,7 @@ TiltShifter is a Javascript library for creating [tilt-shift](http://en.wikipedi
 Add the class "tiltshift" to a canvas element and set the following attributes.
 ```
 data-imgsrc - image source, note: only images hosted from same domain are supported
-data-radiu - the radius of the blur
+data-radius - the radius of the blur
 data-offset - the offset from center of the blur
 ```
 ##Demo
