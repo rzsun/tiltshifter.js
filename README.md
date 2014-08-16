@@ -9,4 +9,4 @@ data-radius - the radius of the blur
 data-offset - the offset from center of the blur
 ```
 ##Demo
-Coming Soon
+http://zhengsun.github.io/TiltShifter
