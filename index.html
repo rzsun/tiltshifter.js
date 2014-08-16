@@ -1,0 +1,71 @@
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        body {
+            margin-left: 180px;
+            margin-top: 40px;
+            background-color: #f3f3f3;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        .container {
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            position: relative;
+        }
+
+        .wrapper:hover img {
+            z-index:1;
+        }
+
+        img {
+            position:absolute;
+            top:0px;
+            left:0px;
+            z-index: -1;
+        }
+
+        canvas {
+            position:relative;
+            top:0px;
+            left:0px;
+            z-index: 0;
+        }
+        </style>
+    </head>
+    <body>
+        <script src="tiltshifter.js"></script>
+        <div class="container">
+            <h1>TiltShifter</h1>
+            <h3>Introduction</h3>
+            <p>TiltShifter is a Javascript library for creating <a href="http://en.wikipedia.org/wiki/Tilt%E2%80%93shift_photography">
+                tilt-shift style</a> photographs using HTML5 Canvas.</p>
+            <h3>Usage</h3>
+            <p>Add the class "tiltshift" to a canvas element and set the following attributes.
+                <ul>
+                    <li>data-imgsrc - image source, note: only images hosted from same domain are supported</li>
+                    <li>data-radius - the radius of the blur</li>
+                    <li>data-offset - the offset from center of the blur</li>
+                </ul>
+            </p>
+            <h3>Demos</h3>
+            <div class="wrapper">
+                <img src="demo1.png">
+                <canvas class="tiltshift" data-imgsrc="demo1.png" data-radius="50" data-offset="15"></canvas>
+            </div>
+            <div class="wrapper">
+                <img src="demo2.png">
+                <canvas class="tiltshift" data-imgsrc="demo2.png" data-radius="40" data-offset="80"></canvas>
+            </div>
+        </div>
+    </body>
+</html>
