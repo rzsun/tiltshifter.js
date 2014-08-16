@@ -10,3 +10,5 @@ data-offset - the offset from center of the blur
 ```
 ##Demo
 http://zhengsun.github.io/TiltShifter
+##Install
+[Fork on Github](https://github.com/zhengsun/TiltShifter) or [Download](https://raw.githubusercontent.com/zhengsun/TiltShifter/master/tiltshifter.js)
